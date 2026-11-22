@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laptop Diagnoser</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo"><span class="lap">💻</span> <span data-i18n="appTitle"></span></div>
+    <div class="head-right">
+      <button id="langBtn" class="btn-small"></button>
+      <div id="userBox" class="hidden">
+        <span id="userName"></span>
+        <button id="logoutBtn" class="btn-small" data-i18n="logout"></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="loginScreen" class="card">
+      <h2 data-i18n="welcome"></h2>
+      <p class="muted" data-i18n="loginSub"></p>
+      <label data-i18n="lblName"></label>
+      <input type="text" id="inName" data-ph="phName">
+      <label data-i18n="lblLaptop"></label>
+      <input type="text" id="inLaptop" data-ph="phLaptop">
+      <p id="loginErr" class="error hidden" data-i18n="loginErr"></p>
+      <button id="loginBtn" class="btn-primary" data-i18n="enterBtn"></button>
+    </section>
+
+    <section id="selectScreen" class="hidden">
+      <div class="card">
+        <h2 data-i18n="selTitle"></h2>
+        <p class="muted" data-i18n="selSub"></p>
+      </div>
+      <div id="catList" class="cats"></div>
+      <div class="bottom-bar">
+        <span id="selCount"></span>
+        <button id="startBtn" class="btn-primary" disabled data-i18n="startBtn"></button>
+      </div>
+    </section>
+
+    <section id="quizScreen" class="card hidden">
+      <div class="tag" id="qFault"></div>
+      <div class="muted" id="qCount"></div>
+      <div class="progress"><div id="qBar"></div></div>
+      <h3 id="qText"></h3>
+      <div class="answers">
+        <button class="btn-yes" id="ansYes" data-i18n="yes"></button>
+        <button class="btn-no" id="ansNo" data-i18n="no"></button>
+        <button class="btn-skip" id="ansSkip" data-i18n="skip"></button>
+      </div>
+      <button id="backBtn" class="btn-link" data-i18n="back"></button>
+    </section>
+
+    <section id="resultScreen" class="card hidden">
+      <div class="tag" id="rFault"></div>
+      <h2 data-i18n="resTitle"></h2>
+      <div class="result-top">
+        <div class="ring" id="ring"><b id="ringNum">0%</b></div>
+        <div>
+          <div id="rCause" class="cause"></div>
+          <div class="muted" data-i18n="matchLbl"></div>
+        </div>
+      </div>
+
+      <h3 data-i18n="tryFix"></h3>
+      <ol id="rFix"></ol>
+      <div id="rOthers"></div>
+
+      <div id="fixedBox" class="box">
+        <h3 data-i18n="fixedQ"></h3>
+        <div class="answers">
+          <button class="btn-yes" id="fixYes" data-i18n="fixedYes"></button>
+          <button class="btn-no" id="fixNo" data-i18n="fixedNo"></button>
+        </div>
+      </div>
+
+      <div id="notFixedBox" class="box warn hidden">
+        <h3 data-i18n="techTitle"></h3>
+        <p data-i18n="techText"></p>
+        <a id="mapLink" class="btn-primary link" target="_blank" data-i18n="mapBtn"></a>
+        <button id="nextBtn" class="btn-secondary" data-i18n="nextFault"></button>
+      </div>
+    </section>
+
+    <section id="summaryScreen" class="card hidden">
+      <h2 data-i18n="sumTitle"></h2>
+      <div id="sumList"></div>
+      <button id="againBtn" class="btn-primary" data-i18n="again"></button>
+    </section>
+
+  </main>
+
+  <footer data-i18n="footer"></footer>
+
+  <script src="data.js"></script>
+  <script src="lang.js"></script>
+  <script src="data2.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
